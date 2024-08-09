@@ -1,0 +1,38 @@
+<center>
+ads code here
+<a href="#" id="timerdwnl"> Download Now !</a>
+<span class="timerd2" id="timrbtn">Click to Download</span>
+ads code here
+ </center>
+ 
+<style>
+.adscontainer{padding: 1%;background: #00abff4f;border: 1px solid #d5d5d5;}
+.timerd2{color: blue;cursor: pointer;border: 1px solid #a4a4a4;padding: 5px;border-radius: 5px;transition: .2s;background: #fbf700;}
+.timerd2:hover{background: blue;color: #fff;transition: .2s;}
+#mbtn, #rbtn {padding: 10px 20px;border: 0;border-radius: 5px;background: none;color: #000;float: right;text-transform: capitalize;font-weight: 700;font-size: 12px;font-family: 'Droid Sans';}
+#timerdwnl{background: blue;cursor: pointer;border: 1px solid #a4a4a4;padding: 5px;color: #fff;border-radius: 5px;}
+#timerdwnl:hover{background: #048c00;cursor: pointer;}
+</style>
+
+ <script type='text/javascript'>
+   var downloadButton = document.getElementById("timerdwnl");
+var counter = 30;
+var newElement = document.createElement("p");
+newElement.innerHTML = "File is ready to download";
+var id;
+downloadButton.parentNode.replaceChild(newElement, downloadButton);
+function startDownload() {
+    this.style.display = 'none';
+    id = setInterval(function () {
+        counter--;
+        if (counter < 0) {
+            newElement.parentNode.replaceChild(downloadButton, newElement);
+            clearInterval(id);
+        } else {
+            newElement.innerHTML = +counter.toString() + " second please wait..";
+        }
+    }, 1000);
+};
+var clickbtn = document.getElementById("timrbtn");
+clickbtn.onclick = startDownload;
+    </script>
